@@ -24,7 +24,7 @@ public class Pause : MonoBehaviour
     void Update()
     {
         // ポーズができる状態でPキーが押されたら
-        if (Input.GetKeyDown(KeyCode.P) && pausable == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && pausable == true)
         {
             if (pausing == false)
             {

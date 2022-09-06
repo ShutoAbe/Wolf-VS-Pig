@@ -5,9 +5,10 @@ using UnityEngine;
 public class pig : MonoBehaviour
 {
     [SerializeField]
+    public float increase = 3;
     public GameObject Wall;
 
-    public float increase = 3;
+   
     // Start is called before the first frame update
     void Start()
     {
