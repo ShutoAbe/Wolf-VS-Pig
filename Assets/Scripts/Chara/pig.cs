@@ -7,7 +7,7 @@ public class pig : MonoBehaviour
     [SerializeField]
     public GameObject Wall;
 
-    float Durablevalue;
+    public float increase = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +17,10 @@ public class pig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Durablevalue = Wall.GetComponent<wall>().Durablevalue;
-        if (Input.GetKeyDown(KeyCode.Return) && Durablevalue < 100)
+        
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            Durablevalue += 3;
+            Wall.GetComponent<wall>().recovery(); 
         }
     }
 }
