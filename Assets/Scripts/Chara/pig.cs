@@ -8,27 +8,27 @@ public class pig : MonoBehaviour
     public float increase = 3;
     public GameObject Wall;
 
-   
+    bool isKeyUp = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                Wall.GetComponent<wall>().recovery();
-            }
+            isKeyUp = true;
+        }
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wall" && isKeyUp)
+        {
+            isKeyUp = false;
+            Wall.GetComponent<wall>().recovery();
         }
     }
 }

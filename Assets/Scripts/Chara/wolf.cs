@@ -30,7 +30,6 @@ public class wolf : MonoBehaviour
         {
             isKeyUp = false;
             Wall.GetComponent<wall>().Damaged();
-            Debug.Log("1");
         }
     }
 }
