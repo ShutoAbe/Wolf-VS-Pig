@@ -18,10 +18,17 @@ public class pig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         
-        if (Input.GetKeyDown(KeyCode.Return))
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
         {
-            Wall.GetComponent<wall>().recovery(); 
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Wall.GetComponent<wall>().recovery();
+            }
         }
     }
 }
