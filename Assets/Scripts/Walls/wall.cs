@@ -14,8 +14,7 @@ public class wall : MonoBehaviour
 
     void Update()
     {
-        reduce = Player.GetComponent<wolf>().reduce;
-        if(Durablevalue < 0)
+        if(Durablevalue <= 0)
         {
             Destroy(gameObject);
         }
@@ -24,5 +23,11 @@ public class wall : MonoBehaviour
 
     }
 
-
+    public float Damaged()
+    {
+        reduce = Player.GetComponent<wolf>().reduce;
+        if(Durablevalue > 0)
+        Durablevalue += reduce;
+        return Durablevalue;
+    }
 }
