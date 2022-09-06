@@ -7,7 +7,9 @@ public class pig : MonoBehaviour
     [SerializeField]
     public float increase = 3;
     public GameObject Wall;
-
+    public GameObject Roof;
+    
+    
     bool isKeyUp = false;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,13 @@ public class pig : MonoBehaviour
         {
             isKeyUp = false;
             Wall.GetComponent<wall>().recovery();
+            
+        }
+        else if (collision.gameObject.tag == "Roof" && isKeyUp)
+        {
+            isKeyUp = false;
+            Roof.GetComponent<wall>().recovery();
+       
         }
     }
 }

@@ -7,6 +7,7 @@ public class wolf : MonoBehaviour
     [SerializeField]
     public float reduce = -5f;
     public GameObject Wall;
+    public GameObject Roof;
 
     bool isKeyUp = false;
     // Start is called before the first frame update
@@ -27,9 +28,17 @@ public class wolf : MonoBehaviour
     public void OnTriggerStay2D(Collider2D collision)
     { 
         if (collision.gameObject.tag == "Wall"&&isKeyUp)
-        {
+        {   
             isKeyUp = false;
             Wall.GetComponent<wall>().Damaged();
+            
+            
+        }
+        else if (collision.gameObject.tag == "Roof" && isKeyUp)
+        { 
+            isKeyUp = false;
+            Roof.GetComponent<wall>().Damaged();
+           
         }
     }
 }

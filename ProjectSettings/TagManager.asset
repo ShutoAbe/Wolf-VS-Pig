@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Roof
   layers:
   - Default
   - TransparentFX
