@@ -7,7 +7,8 @@ public class wolf : MonoBehaviour
     [SerializeField]
     public float reduce = -5f;
     public GameObject Wall;
-    
+
+    bool isKeyUp = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,20 +18,19 @@ public class wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-   
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Wall")
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
+            isKeyUp = true;
+        }
+    }
 
-                Wall.GetComponent<wall>().Damaged();
-                Debug.Log("1");
-            }
-
+    public void OnTriggerStay2D(Collider2D collision)
+    { 
+        if (collision.gameObject.tag == "Wall"&&isKeyUp)
+        {
+            isKeyUp = false;
+            Wall.GetComponent<wall>().Damaged();
+            Debug.Log("1");
         }
     }
 }
