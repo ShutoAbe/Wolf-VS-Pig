@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class wall : MonoBehaviour
 {
     [SerializeField]
@@ -9,6 +9,7 @@ public class wall : MonoBehaviour
     public GameObject Player;
     float increase;
     float reduce;
+    private Rigidbody2D rigidBody;
     // Start is called before the first frame update
 
 
@@ -27,13 +28,12 @@ public class wall : MonoBehaviour
     }
 
     public float Damaged()
-    {
+    { 
         reduce = Player.GetComponent<wolf>().reduce;
-        if(Durablevalue > 0)
+        if (Durablevalue > 0)
         {
             Durablevalue += reduce;
         }
-       
         return Durablevalue;
     }
     public float recovery()
@@ -43,4 +43,6 @@ public class wall : MonoBehaviour
        
         return increase;
     }
+    
+
 }
