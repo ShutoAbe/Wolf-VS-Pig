@@ -5,8 +5,8 @@ using UnityEngine;
 public class wolf : MonoBehaviour
 {
     [SerializeField]
-    public float reduce = 0.0f;
-
+    public float reduce = -5f;
+    public GameObject Wall;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +16,9 @@ public class wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            reduce -= 5;
+            Wall.GetComponent<wall>().Damaged();
         }
-       
     }
 }

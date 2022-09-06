@@ -7,22 +7,40 @@ public class wall : MonoBehaviour
     [SerializeField]
     public float  Durablevalue;
     public GameObject Player;
-
+    float increase;
     float reduce;
     // Start is called before the first frame update
 
 
     void Update()
     {
-        reduce = Player.GetComponent<wolf>().reduce;
-        if(Durablevalue < 0)
+        if(Durablevalue <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-
-       Debug.Log(Durablevalue);
+        if (Durablevalue > 100)
+        {
+            Durablevalue = 100;
+        }
+        Debug.Log(Durablevalue);
 
     }
 
-
+    public float Damaged()
+    {
+        reduce = Player.GetComponent<wolf>().reduce;
+        if(Durablevalue > 0)
+        {
+            Durablevalue += reduce;
+        }
+       
+        return Durablevalue;
+    }
+    public float recovery()
+    {
+        increase = Player.GetComponent<pig>().increase;
+        Durablevalue += increase;
+       
+        return increase;
+    }
 }
