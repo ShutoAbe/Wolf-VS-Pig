@@ -6,7 +6,7 @@ public class roof : MonoBehaviour
 {
 
     [SerializeField]
-    public float Durablevalue;
+    public float  Durablevalue;
     public GameObject Player;
     public GameObject Roof;
     public Sprite RoofSp;
