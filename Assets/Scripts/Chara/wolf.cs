@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class wolf : MonoBehaviour
+public class Wolf : MonoBehaviour
 {
     [SerializeField]
     public float reduce = -5f;
@@ -10,9 +10,12 @@ public class wolf : MonoBehaviour
     public GameObject Roof;
     public GameObject Wall2;
 
-    bool isKey=false;
-    bool isKeyDown = false;
-    bool isKeyUp = false;
+
+    int State = 0;
+    //State‚ª 0‚Ì‚Æ‚«Left/1‚Ì‚Æ‚«Top/2‚Ì‚Æ‚«Right
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,38 +25,37 @@ public class wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            isKeyUp = true;
-            isKey = true;
+            State = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyUp(KeyCode.UpArrow))
         {
-            isKeyDown = true;
+            State = 1;
         }
-        
-    }
+        if(Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            State = 2;
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && State == 0 )
+        {
 
-    public void OnTriggerStay2D(Collider2D collision)
-    { 
-        if (collision.gameObject.tag == "Wall" && isKeyUp)
-        {   
-            isKeyUp = false;
-            Wall.GetComponent<wall>().Damaged();
-            
-            
-        }
-        if (collision.gameObject.tag == "Roof" && isKeyDown)
-        { 
-            isKeyDown = false;
-            Roof.GetComponent<roof>().Damaged();
+            Wall.GetComponent<Wall>().Damaged();
            
+            Debug.Log("a");
         }
-        if (collision.gameObject.tag == "Wall2" && isKey)
+        if (Input.GetKeyUp(KeyCode.Space) && State == 1)
         {
-            isKey = false;
-            Wall.GetComponent<wall2>().Damaged();
-
+            
+            Roof.GetComponent<Roof>().Damaged();
+            Debug.Log("b");
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && State == 2)
+        {
+            Wall2.GetComponent<Wall2>().Damaged();
+            Debug.Log("c");
         }
     }
+
+    
 }

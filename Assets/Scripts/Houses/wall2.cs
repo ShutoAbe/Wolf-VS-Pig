@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class wall2 : MonoBehaviour
+public class Wall2 : MonoBehaviour
 {
 
     [SerializeField]
     public float Durablevalue;
     public GameObject Player;
-    public GameObject Wall;
+    public GameObject wall;
     public Sprite WallSp;
     public Sprite WallSp2;
     public Sprite WallSp3;
@@ -38,7 +38,7 @@ public class wall2 : MonoBehaviour
 
     public float Damaged()
     {
-        reduce = Player.GetComponent<wolf>().reduce;
+        reduce = Player.GetComponent<Wolf>().reduce;
         if (Durablevalue > 0)
         {
             Durablevalue += reduce;
@@ -47,7 +47,7 @@ public class wall2 : MonoBehaviour
     }
     public float recovery()
     {
-        increase = Player.GetComponent<pig>().increase;
+        increase = Player.GetComponent<Pig>().increase;
         if (increase < 100)
         {
             Durablevalue += increase;
@@ -58,19 +58,19 @@ public class wall2 : MonoBehaviour
     {
         if (Durablevalue == 100)
         {
-            Wall.GetComponent<SpriteRenderer>().sprite = WallSp3;
+            wall.GetComponent<SpriteRenderer>().sprite = WallSp3;
         }
         if (Durablevalue < 100)
         {
-            Wall.GetComponent<SpriteRenderer>().sprite = WallSp;
+            wall.GetComponent<SpriteRenderer>().sprite = WallSp;
         }
         if (Durablevalue < 49)
         {
-            Wall.GetComponent<SpriteRenderer>().sprite = WallSp2;
+            wall.GetComponent<SpriteRenderer>().sprite = WallSp2;
         }
         if (Durablevalue <= 0)
         {
-            Wall.GetComponent<SpriteRenderer>().sprite = WallSp4;
+            wall.GetComponent<SpriteRenderer>().sprite = WallSp4;
         }
     }
 
