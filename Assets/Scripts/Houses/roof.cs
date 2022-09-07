@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class roof : MonoBehaviour
+public class Roof : MonoBehaviour
 {
 
     [SerializeField]
     public float  Durablevalue;
     public GameObject Player;
-    public GameObject Roof;
+    public GameObject roof;
     public Sprite RoofSp;
     public Sprite RoofSp2;
     public Sprite RoofSp3;
@@ -39,7 +39,7 @@ public class roof : MonoBehaviour
 
     public float Damaged()
     {
-        reduce = Player.GetComponent<wolf>().reduce;
+        reduce = Player.GetComponent<Wolf>().reduce;
         if (Durablevalue > 0)
         {
             Durablevalue += reduce;
@@ -49,7 +49,7 @@ public class roof : MonoBehaviour
     }
     public float recovery()
     {
-        increase = Player.GetComponent<pig>().increase;
+        increase = Player.GetComponent<Pig>().increase;
         if (increase < 100)
         {
             Durablevalue += increase;
@@ -60,19 +60,19 @@ public class roof : MonoBehaviour
     {
         if (Durablevalue == 100)
         {
-            Roof.GetComponent<SpriteRenderer>().sprite = RoofSp3;
+            roof.GetComponent<SpriteRenderer>().sprite = RoofSp3;
         }
         if (Durablevalue < 100)
         {
-            Roof.GetComponent<SpriteRenderer>().sprite = RoofSp;
+            roof.GetComponent<SpriteRenderer>().sprite = RoofSp;
         }
         if (Durablevalue < 49)
         {
-            Roof.GetComponent<SpriteRenderer>().sprite = RoofSp2;
+            roof.GetComponent<SpriteRenderer>().sprite = RoofSp2;
         }
         if(Durablevalue <= 0)
         {
-            Roof.GetComponent<SpriteRenderer>().sprite = RoofSp4;
+            roof.GetComponent<SpriteRenderer>().sprite = RoofSp4;
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pig : MonoBehaviour
+public class Pig : MonoBehaviour
 {
     [SerializeField]
     public float increase = 3;
@@ -39,19 +39,19 @@ public class pig : MonoBehaviour
         if (collision.gameObject.tag == "Wall" && isKeyUp)
         {
             isKeyUp = false;
-            Wall.GetComponent<wall>().recovery();
+            Wall.GetComponent<Wall>().recovery();
             
         }
         if (collision.gameObject.tag == "Roof" && isKeyDown)
         {
             isKeyDown = false;
-            Roof.GetComponent<roof>().recovery();
+            Roof.GetComponent<Roof>().recovery();
        
         }
         if (collision.gameObject.tag == "Wall2" && isKey)
         {
             isKey = false;
-            Wall.GetComponent<wall2>().recovery();
+            Wall.GetComponent<Wall2>().recovery();
 
         }
     }
