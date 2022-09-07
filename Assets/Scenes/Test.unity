@@ -463,7 +463,7 @@ MonoBehaviour:
     m_ImpulseDuration: 0.2
     m_ImpulseType: 3
     m_DissipationRate: 0.25
-    m_RawSignal: {fileID: 11400000, guid: e5d89f614f93d4d4582963bbc9d3fe2b, type: 2}
+    m_RawSignal: {fileID: 11400000, guid: cb6a747fe68739a48ad284c96abe6228, type: 2}
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_RepeatMode: 0
