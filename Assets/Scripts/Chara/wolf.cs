@@ -45,5 +45,12 @@ public class wolf : MonoBehaviour
             Roof.GetComponent<roof>().Damaged();
            
         }
+        if (collision.gameObject.tag == "Wall2" && isKeyUp)
+        {
+            isKeyUp = false;
+            Wall.GetComponent<wall>().Damaged();
+
+
+        }
     }
 }
