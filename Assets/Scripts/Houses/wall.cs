@@ -37,11 +37,13 @@ public class wall : MonoBehaviour
     }
 
     public float Damaged()
-    { 
+    {
+        Debug.Log("a");
         reduce = Player.GetComponent<wolf>().reduce;
         if (Durablevalue > 0)
         {
             Durablevalue += reduce;
+          
         }
         return Durablevalue;
     }

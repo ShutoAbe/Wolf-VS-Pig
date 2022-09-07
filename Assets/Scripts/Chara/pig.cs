@@ -8,7 +8,9 @@ public class pig : MonoBehaviour
     public float increase = 3;
     public GameObject Wall;
     public GameObject Roof;
+    public GameObject Wall2;
 
+    bool isKey = false;
     bool isKeyDown = false;
     bool isKeyUp = false;
     // Start is called before the first frame update
@@ -20,13 +22,16 @@ public class pig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyUp(KeyCode.Return))
+        {
+            isKeyUp = true;  
+            isKey = true;
+        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            isKeyUp = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Return))
-        {
             isKeyDown = true;
+          
         }
     }
     public void OnTriggerStay2D(Collider2D collision)
@@ -43,10 +48,10 @@ public class pig : MonoBehaviour
             Roof.GetComponent<roof>().recovery();
        
         }
-        if (collision.gameObject.tag == "Wall2" && isKeyUp)
+        if (collision.gameObject.tag == "Wall2" && isKey)
         {
-            isKeyUp = false;
-            Wall.GetComponent<wall>().recovery();
+            isKey = false;
+            Wall.GetComponent<wall2>().recovery();
 
         }
     }

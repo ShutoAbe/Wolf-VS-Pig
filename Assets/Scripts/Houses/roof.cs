@@ -43,6 +43,7 @@ public class roof : MonoBehaviour
         if (Durablevalue > 0)
         {
             Durablevalue += reduce;
+            Debug.Log("a");
         }
         return Durablevalue;
     }
