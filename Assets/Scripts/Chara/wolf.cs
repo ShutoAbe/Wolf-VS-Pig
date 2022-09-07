@@ -10,9 +10,9 @@ public class wolf : MonoBehaviour
     public GameObject Roof;
     public GameObject Wall2;
 
-    bool isKey=false;
+    bool isKey = false;
     bool isKeyDown = false;
-    bool isKeyUp = false;
+    bool sss = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,36 +24,39 @@ public class wolf : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            isKeyUp = true;
+            sss = false;
             isKey = true;
+            Debug.Log("f");
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isKeyDown = true;
+            
         }
         
     }
 
     public void OnTriggerStay2D(Collider2D collision)
-    { 
-        if (collision.gameObject.tag == "Wall" && isKeyUp)
+    {
+      
+        if((collision.gameObject.tag == "Wall") && sss == false)
         {   
-            isKeyUp = false;
+            
             Wall.GetComponent<wall>().Damaged();
-            
-            
+            sss = true;
+            Debug.Log("a");
         }
         if (collision.gameObject.tag == "Roof" && isKeyDown)
         { 
             isKeyDown = false;
             Roof.GetComponent<roof>().Damaged();
-           
+            Debug.Log("b");
         }
         if (collision.gameObject.tag == "Wall2" && isKey)
         {
             isKey = false;
             Wall.GetComponent<wall2>().Damaged();
-
+            Debug.Log("c");
         }
     }
 }
