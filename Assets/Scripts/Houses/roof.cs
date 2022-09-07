@@ -12,7 +12,7 @@ public class roof : MonoBehaviour
     public Sprite RoofSp;
     public Sprite RoofSp2;
     public Sprite RoofSp3;
-
+    public Sprite RoofSp4;
 
 
     float increase;
@@ -28,10 +28,6 @@ public class roof : MonoBehaviour
     void Update()
     {
         SpriteChange();
-        if (Durablevalue <= 0)
-        {
-            gameObject.SetActive(false);
-        }
         if (Durablevalue > 100)
         {
             Durablevalue = 100;
@@ -72,6 +68,10 @@ public class roof : MonoBehaviour
         if (Durablevalue < 49)
         {
             Roof.GetComponent<SpriteRenderer>().sprite = RoofSp2;
+        }
+        if(Durablevalue <= 0)
+        {
+            Roof.GetComponent<SpriteRenderer>().sprite = RoofSp4;
         }
     }
 }

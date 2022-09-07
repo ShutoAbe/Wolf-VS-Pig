@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class wall : MonoBehaviour
+public class wall2 : MonoBehaviour
 {
-    
+
     [SerializeField]
-    public float  Durablevalue;
+    public float Durablevalue;
     public GameObject Player;
     public GameObject Wall;
     public Sprite WallSp;
@@ -17,8 +17,8 @@ public class wall : MonoBehaviour
     float increase;
     float reduce;
     private Rigidbody2D rigidBody;
-    
-    
+
+
 
 
     // Start is called before the first frame update
@@ -33,11 +33,11 @@ public class wall : MonoBehaviour
         }
         Debug.Log(Durablevalue);
 
-     
+
     }
 
     public float Damaged()
-    { 
+    {
         reduce = Player.GetComponent<wolf>().reduce;
         if (Durablevalue > 0)
         {
@@ -56,7 +56,7 @@ public class wall : MonoBehaviour
     }
     public void SpriteChange()
     {
-        if(Durablevalue == 100)
+        if (Durablevalue == 100)
         {
             Wall.GetComponent<SpriteRenderer>().sprite = WallSp3;
         }
@@ -64,11 +64,11 @@ public class wall : MonoBehaviour
         {
             Wall.GetComponent<SpriteRenderer>().sprite = WallSp;
         }
-        if(Durablevalue < 49)
+        if (Durablevalue < 49)
         {
-            Wall.GetComponent <SpriteRenderer>().sprite = WallSp2;
+            Wall.GetComponent<SpriteRenderer>().sprite = WallSp2;
         }
-        if(Durablevalue <= 0)
+        if (Durablevalue <= 0)
         {
             Wall.GetComponent<SpriteRenderer>().sprite = WallSp4;
         }

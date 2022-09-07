@@ -43,5 +43,11 @@ public class pig : MonoBehaviour
             Roof.GetComponent<roof>().recovery();
        
         }
+        if (collision.gameObject.tag == "Wall2" && isKeyUp)
+        {
+            isKeyUp = false;
+            Wall.GetComponent<wall>().recovery();
+
+        }
     }
 }
